@@ -1,0 +1,22 @@
+# pipelines.yml
+
+################################################################################
+#                                                                              #
+# Required: True (Docker)                                                      #
+# Description: This is a required file for data enrichment                     #
+# This file is where you define your pipelines. You can define multiple.       #
+# For more information on multiple pipelines, see the documentation:           #
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html   #
+#                                                                              #
+################################################################################
+#
+
+#- pipeline.id: main
+# path.config: "/usr/share/logstash/logstash.conf"
+
+- pipeline.id: main
+  path.config: "/usr/share/logstash/pipeline/winlogbeat/*.conf"
+  pipeline.ecs_compatibility: v8
+  #pipeline.workers: 1
+  #pipeline.ordered: true
+  #pipeline.batch.size: 200
