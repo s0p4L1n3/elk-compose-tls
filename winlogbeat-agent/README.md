@@ -1,4 +1,4 @@
-1. Download Winlogbeat ZIP file for Windows
+1. Download Winlogbeat ZIP file for Windows from Elastic Website
 2. Extract to the desired path
 3. In Powershell/cmd Admin: `cd C:\desiredpath`
 4. Run `.\install-service-winlogbeat.ps1`
