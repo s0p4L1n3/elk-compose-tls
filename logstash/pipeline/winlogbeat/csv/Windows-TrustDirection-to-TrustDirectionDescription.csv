@@ -1,5 +1,0 @@
-"tdodirection","tdodirectiondescription"
-"0","TRUST_DIRECTION_DISABLED - Exist but disabled"
-"1","TRUST_DIRECTION_INBOUND - Trust primary domain for lookups and auth"
-"2","TRUST_DIRECTION_OUTBOUND - Primary domain trust the trusted domain for lookups and auth"
-"3","TRUST_DIRECTION_BIDIRECTIONAL - Both domain trust each other"

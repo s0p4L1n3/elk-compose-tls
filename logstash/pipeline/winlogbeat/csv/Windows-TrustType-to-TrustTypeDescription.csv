@@ -1,6 +1,0 @@
-"ttd_value","ttd_description"
-"1","TRUST_TYPE_DOWNLEVEL - Not running Active Directory"
-"2","TRUST_TYPE_UPLEVEL - Running Active Directory"
-"3","TRUST_TYPE_MIT - Running a non-Windows RFC4120-compliant Kerberos distribution"
-"4","TRUST_TYPE_DCE - Historical reference"
-"5","TRUST_TYPE_AAD - Azure Active Directory"
