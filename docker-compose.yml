@@ -41,7 +41,7 @@ services:
       - 9300:9300
     environment:
       node.name: elasticsearch
-      ES_JAVA_OPTS: -Xms8g -Xmx8g
+      ES_JAVA_OPTS: -Xms2g -Xmx2g
       # Bootstrap password.
       # Used to initialize the keystore during the initial startup of
       # Elasticsearch. Ignored on subsequent runs.
@@ -71,7 +71,7 @@ services:
       - 12000:12000/udp
       - 9600:9600
     environment:
-      LS_JAVA_OPTS: -Xms8g -Xmx8g
+      LS_JAVA_OPTS: -Xms2g -Xmx2g
       LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
       TZ: Europe/Paris
     networks:
@@ -96,23 +96,24 @@ services:
       TZ: Europe/Paris
     networks:
       - elk
-      - traefik-global_traefiknet
+      - traefik-tls
     depends_on:
       - elasticsearch
     restart: unless-stopped
     labels:
     # permet a traefik d'avoir des instructions pour ce service
       - "traefik.enable=true"
-      - "traefik.http.routers.kibana.rule=Host(`elk.lab.lan`)"
+      - "traefik.http.routers.kibana.ruleSyntax=v3"
+      - "traefik.http.routers.kibana.rule=Host(`elk.sopaline.lan`)"
+      - "traefik.http.routers.kibana.service=kibana"
       - "traefik.http.routers.kibana.entrypoints=websecure"
-      - "traefik.http.routers.kibana.tls=true"
       - "traefik.http.services.kibana.loadbalancer.server.port=5601"
-      - "traefik.docker.network=traefik-global_traefiknet"
+      - "traefik.docker.network=traefik-tls"
 
 networks:
   elk:
     external: true
-  traefik-global_traefiknet:
+  traefik-tls:
     external: true
 
 volumes:
